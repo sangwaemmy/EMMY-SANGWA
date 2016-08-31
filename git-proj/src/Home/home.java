@@ -5,15 +5,48 @@
  */
 package Home;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.MediaTracker;
+import java.awt.Toolkit;
+import javax.swing.JPanel;
+
 /**
  *
  * @author SANGWA
  */
 public class home extends javax.swing.JFrame {
+ MediaTracker mt;
+     int n = 0;
+   class ContentPanel extends JPanel {
 
-    /**
-     * Creates new form home
-     */
+        Image bgimage = null;
+        Dimension dim;
+
+        ContentPanel() {
+            mt = new MediaTracker(this);
+            bgimage = Toolkit.getDefaultToolkit().getImage("src/Images/maxresdefault_jKFJl8g.jpg");
+            dim = Toolkit.getDefaultToolkit().getScreenSize();
+            
+            setLayout(null);
+            setBounds(0, 0, dim.width, dim.height);
+            mt.addImage(bgimage, 0);
+            try {
+                mt.waitForAll();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            int imwidth = dim.width;
+            int imheight = dim.height;
+            g.drawImage(bgimage, 0, 0, this.getWidth(), this.getHeight(), this);
+
+        }
+    }
     public home() {
         initComponents();
     }
@@ -33,11 +66,11 @@ public class home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 976, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 569, Short.MAX_VALUE)
         );
 
         pack();
