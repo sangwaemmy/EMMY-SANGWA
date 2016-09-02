@@ -3,60 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Home;
-
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.MediaTracker;
-import java.awt.Toolkit;
-import javax.swing.JPanel;
+package accounts;
 
 /**
  *
  * @author SANGWA
  */
-public class home extends javax.swing.JFrame {
+public class register extends javax.swing.JFrame {
 
-    MediaTracker mt;
-    int n = 0;
-
-    private void MakeFullScreen() {
-        this.setExtendedState(this.MAXIMIZED_BOTH);
-    }
-
-    class ContentPanel extends JPanel {
-
-        Image bgimage = null;
-        Dimension dim;
-
-        ContentPanel() {
-            mt = new MediaTracker(this);
-            bgimage = Toolkit.getDefaultToolkit().getImage("images/maxresdefault_jKFJl8g.jpg");
-            dim = Toolkit.getDefaultToolkit().getScreenSize();
-
-            setLayout(null);
-            setBounds(0, 0, dim.width, dim.height);
-            mt.addImage(bgimage, 0);
-            try {
-                mt.waitForAll();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            int imwidth = dim.width;
-            int imheight = dim.height;
-            g.drawImage(bgimage, 0, 0, this.getWidth(), this.getHeight(), this);
-
-        }
-    }
-    public home() {
+    /**
+     * Creates new form register
+     */
+    public register() {
         initComponents();
-        MakeFullScreen();
-
     }
 
     /**
@@ -72,11 +31,11 @@ public class home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 976, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -99,20 +58,20 @@ public class home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new home().setVisible(true);
+                new register().setVisible(true);
             }
         });
     }
